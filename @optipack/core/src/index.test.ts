@@ -1,9 +1,7 @@
 import {shuffle} from 'lodash';
-
+import {arraynize, dearranize, isNodeArray, sort} from '.';
 import {defaultConfig} from './configs';
 import {Node} from './sorters';
-
-import {arraynize, dearranize, sort} from '.';
 
 describe('index', () => {
   describe('arraynize()', () => {
@@ -61,6 +59,14 @@ describe('index', () => {
         ],
       ]);
     });
+
+    it('array', () => {
+      expect(
+        arraynize({
+          keywords: ['a', 'b', 'c'],
+        }),
+      ).toStrictEqual([['keywords', ['a', 'b', 'c']]]);
+    });
   });
   describe('dearraynize()', () => {
     it('simple', () => {
@@ -91,6 +97,21 @@ describe('index', () => {
         `{"name":"optipack","dependencies":{"cac":"^6.6.1","lodash":"^4.17.20"}}`,
       );
     });
+    it('array', () => {
+      expect(dearranize([['keywords', ['a', 'b', 'c']]])).toBe(
+        `{"keywords":["a","b","c"]}`,
+      );
+    });
+  });
+  it('isNodeArray()', () => {
+    expect(isNodeArray('MIT')).toBe(false);
+    expect(isNodeArray(['a', 'b', 'c'])).toBe(false);
+    expect(
+      isNodeArray([
+        ['prebuild:a', 'a'],
+        ['prebuild:b', 'b'],
+      ]),
+    ).toBe(true);
   });
   describe('sort()', () => {
     it('all with default', () => {
@@ -99,6 +120,7 @@ describe('index', () => {
         ['version', '0.0.1'],
         ['description', 'Optimizer for package.json'],
         ['license', 'MIT'],
+        ['keywords', ['a', 'b', 'c']],
         [
           'scripts',
           [
@@ -138,17 +160,7 @@ describe('index', () => {
           ],
         ],
       ];
-      expect(
-        sort(
-          shuffle(
-            expected.map(([key, nest]) => [
-              key,
-              typeof nest === 'string' ? nest : shuffle(nest),
-            ]),
-          ),
-          defaultConfig,
-        ),
-      ).toStrictEqual(expected);
+      expect(sort(shuffle(expected), defaultConfig)).toStrictEqual(expected);
     });
   });
 });

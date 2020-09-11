@@ -3,7 +3,7 @@ import {ascending} from 'alpha-sort';
 import {sortScriptsKeys} from './scripts';
 import {Config} from './configs';
 
-export type Node = [string, string | Node[]];
+export type Node = [string, string | string[] | Node[]];
 export type Sorter = (nodes: Node[]) => Node[];
 
 export const sortNodes = (

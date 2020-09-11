@@ -27,17 +27,23 @@ export const sort = (nodes: Node[], config: Config) => {
 };
 
 export function arraynize(object: object): Node[] {
-  return Object.entries(object).map(([key, value]) => [
-    key,
-    typeof value === 'string' ? value : arraynize(value),
-  ]);
+  return Object.entries(object).map(([key, value]) => {
+    if (typeof value === 'string' || Array.isArray(value)) return [key, value];
+    return [key, arraynize(value)];
+  });
+}
+
+export function isNodeArray(val: Node[1]): val is Node[] {
+  return (
+    Array.isArray(val) && val.every((is: string | Node) => Array.isArray(is))
+  );
 }
 
 export const dearranize = (nodes: Node[]): string => {
   const element = nodes
     .map(([key, value]) => [
       key,
-      typeof value === 'string' ? `"${value}"` : dearranize(value),
+      isNodeArray(value) ? dearranize(value) : JSON.stringify(value),
     ])
     .reduce((pre, [key, value], i, {length}) => {
       const comma = i === length - 1 ? '' : ',';
