@@ -1,0 +1,27 @@
+{
+  "name": "prettier-plugin-optipack",
+  "version": "0.0.1",
+  "author": "SnO2WMaN <sno2wman.official@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@optipack/core": "^0.0.1",
+    "cosmiconfig": "^7.0.0"
+  },
+  "peerDependencies": {
+    "prettier": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/prettier": "^2.1.0"
+  }
+}
