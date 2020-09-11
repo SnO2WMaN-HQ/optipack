@@ -4,6 +4,7 @@
   "description": "Optimizer for package.json",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "lint": "run-s -cn lint:*",
     "lint:eslint": "eslint . --ext .js,.ts",
     "lint:prettier": "prettier --check **/*.{json,yml,yaml,md}",
@@ -14,6 +15,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --watch"
   },
+  "dependencies": {
+    "alpha-sort": "^3.1.0",
+    "cac": "^6.6.1"
+  },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
     "@commitlint/cli": "9.1.2",
@@ -22,8 +27,11 @@
     "@shopify/prettier-config": "^1.1.0",
     "@shopify/typescript-configs": "^3.0.1",
     "@types/jest": "^26.0.10",
+    "@types/lodash": "^4.14.161",
+    "@types/node": "^14.6.4",
     "eslint": "^7.8.1",
     "jest": "^26.4.0",
+    "lodash": "^4.17.20",
     "npm-run-all": "4.1.5",
     "prettier": "^2.1.1",
     "ts-jest": "^26.2.0",
