@@ -45,3 +45,7 @@ export const dearranize = (nodes: Node[]): string => {
     }, '');
   return `{${element}}`;
 };
+
+export function format(json: string, config: Config) {
+  return dearranize(sort(arraynize(JSON.parse(json)), config));
+}
