@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "@optipack/core"
+    },
+    {
+      "path": "@optipack/cli"
+    },
+    {
+      "path": "@optipack/prettier-plugin"
     }
   ]
 }

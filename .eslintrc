@@ -4,5 +4,8 @@
     "plugin:@shopify/typescript",
     "plugin:@shopify/jest",
     "plugin:@shopify/prettier"
-  ]
+  ],
+  "rules": {
+    "import/order": [0]
+  }
 }
