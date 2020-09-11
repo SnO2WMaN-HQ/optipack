@@ -1,11 +1,10 @@
 import {shuffle} from 'lodash';
-
 import {
   extractUniqueKey,
   separateByUniqueKeys,
   separateDetailed,
-  sortScriptsKeys,
   sort,
+  sortScriptsKeys,
 } from './scripts';
 
 describe('scripts', () => {

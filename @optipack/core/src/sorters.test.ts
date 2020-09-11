@@ -1,5 +1,4 @@
 import {shuffle} from 'lodash';
-
 import {defaultConfig} from './configs';
 import {generateRootSorter, Node, scriptsSorter, sortNodes} from './sorters';
 
