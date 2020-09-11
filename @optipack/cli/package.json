@@ -1,0 +1,25 @@
+{
+  "name": "@optipack/cli",
+  "version": "0.0.1",
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "optipack": "lib/index.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean"
+  },
+  "dependencies": {
+    "@optipack/core": "^0.0.1",
+    "cac": "^6.6.1",
+    "cosmiconfig": "^7.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^9.0.0"
+  },
+  "peerDependencies": {
+    "prettier": "^2.1.1"
+  }
+}
