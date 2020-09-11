@@ -59,13 +59,22 @@ describe('index', () => {
         ],
       ]);
     });
-
-    it('array', () => {
+    it('not string/nodes values', () => {
       expect(
         arraynize({
           keywords: ['a', 'b', 'c'],
+          true: true,
+          false: false,
+          zero: 0,
+          one: 1,
         }),
-      ).toStrictEqual([['keywords', ['a', 'b', 'c']]]);
+      ).toStrictEqual([
+        ['keywords', ['a', 'b', 'c']],
+        ['true', true],
+        ['false', false],
+        ['zero', 0],
+        ['one', 1],
+      ]);
     });
   });
   describe('dearraynize()', () => {
@@ -97,9 +106,17 @@ describe('index', () => {
         `{"name":"optipack","dependencies":{"cac":"^6.6.1","lodash":"^4.17.20"}}`,
       );
     });
-    it('array', () => {
-      expect(dearranize([['keywords', ['a', 'b', 'c']]])).toBe(
-        `{"keywords":["a","b","c"]}`,
+    it('not string/nodes values', () => {
+      expect(
+        dearranize([
+          ['keywords', ['a', 'b', 'c']],
+          ['true', true],
+          ['false', false],
+          ['zero', 0],
+          ['one', 1],
+        ]),
+      ).toBe(
+        `{"keywords":["a","b","c"],"true":true,"false":false,"zero":0,"one":1}`,
       );
     });
   });
@@ -128,6 +145,7 @@ describe('index', () => {
       const expected: Node[] = [
         ['name', 'optipack'],
         ['version', '0.0.1'],
+        ['private', expect.any(Boolean)],
         ['description', 'Optimizer for package.json'],
         ['license', 'MIT'],
         ['keywords', ['a', 'b', 'c', 'd']],

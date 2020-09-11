@@ -29,7 +29,13 @@ export const sort = (nodes: Node[], config: Config) => {
 
 export function arraynize(object: object): Node[] {
   return Object.entries(object).map(([key, value]) => {
-    if (typeof value === 'string' || Array.isArray(value)) return [key, value];
+    if (
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean' ||
+      Array.isArray(value)
+    )
+      return [key, value];
     return [key, arraynize(value)];
   });
 }
