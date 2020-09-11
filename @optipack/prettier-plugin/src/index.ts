@@ -5,8 +5,6 @@ import {Plugin} from 'prettier';
 const {parsers} =
   require('prettier/parser-babel') || require('prettier/parser-babylon');
 
-const parser = parsers['json-stringify'];
-
 export function getConfig(pwd?: string): Config {
   const explorer = cosmiconfigSync('optipack');
   const config = explorer.search(pwd)?.config;
@@ -15,8 +13,8 @@ export function getConfig(pwd?: string): Config {
 
 export const plugin: Plugin = {
   parsers: {
-    'json-stringify': {
-      ...parser,
+    json: {
+      ...parsers.json,
       preprocess(text, options) {
         if (/(^|\\|\/)package.json$/.test(options.filepath))
           return format(text, getConfig(process.cwd()));
