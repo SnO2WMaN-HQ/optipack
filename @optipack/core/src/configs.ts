@@ -2,14 +2,24 @@ export const defaultOrder = [
   'name',
   'version',
   'private',
+  // package info
   'description',
   'license',
   'author',
-  'keywords',
   'repository',
   'bugs',
+  'keywords',
+  // publish settings
+  'publishConfig',
+  'main',
+  'source',
+  'types',
+  'typings',
+  'files',
   'bin',
+  // scripts
   'scripts',
+  // dependencies
   'engines',
   'dependencies',
   'devDependencies',
