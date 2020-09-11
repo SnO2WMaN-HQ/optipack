@@ -1,5 +1,5 @@
 import {shuffle} from 'lodash';
-import {arraynize, dearranize, isNodeArray, sort} from '.';
+import {arraynize, dearranize, isNodeArray, isStringArray, sort} from '.';
 import {defaultConfig} from './configs';
 import {Node} from './sorters';
 
@@ -113,6 +113,16 @@ describe('index', () => {
       ]),
     ).toBe(true);
   });
+  it('isStringArray()', () => {
+    expect(isStringArray('MIT')).toBe(false);
+    expect(isStringArray(['a', 'b', 'c'])).toBe(true);
+    expect(
+      isStringArray([
+        ['prebuild:a', 'a'],
+        ['prebuild:b', 'b'],
+      ]),
+    ).toBe(false);
+  });
   describe('sort()', () => {
     it('all with default', () => {
       const expected: Node[] = [
@@ -120,7 +130,7 @@ describe('index', () => {
         ['version', '0.0.1'],
         ['description', 'Optimizer for package.json'],
         ['license', 'MIT'],
-        ['keywords', ['a', 'b', 'c']],
+        ['keywords', ['a', 'b', 'c', 'd']],
         [
           'scripts',
           [
@@ -160,7 +170,18 @@ describe('index', () => {
           ],
         ],
       ];
-      expect(sort(shuffle(expected), defaultConfig)).toStrictEqual(expected);
+      expect(
+        sort(
+          shuffle(
+            expected.map(([key, value]) => {
+              if (isStringArray(value)) return [key, shuffle(value)];
+              if (isNodeArray(value)) return [key, shuffle(value)];
+              return [key, value];
+            }),
+          ),
+          defaultConfig,
+        ),
+      ).toStrictEqual(expected);
     });
   });
 });

@@ -1,4 +1,5 @@
-import {Config} from './configs';
+import {ascending} from 'alpha-sort';
+import {Config, defaultConfig} from './configs';
 import {
   alphabeticalSorter,
   generateRootSorter,
@@ -19,7 +20,7 @@ export const sort = (nodes: Node[], config: Config) => {
         case 'peerDependencies':
           return [key, sortNodes(value as Node[], alphabeticalSorter)];
         default:
-          return [key, value];
+          return [key, isStringArray(value) ? value.sort(ascending) : value];
       }
     }),
     generateRootSorter(config),
@@ -34,8 +35,13 @@ export function arraynize(object: object): Node[] {
 }
 
 export function isNodeArray(val: Node[1]): val is Node[] {
+  return Array.isArray(val) && !isStringArray(val);
+}
+
+export function isStringArray(val: Node[1]): val is string[] {
   return (
-    Array.isArray(val) && val.every((is: string | Node) => Array.isArray(is))
+    Array.isArray(val) &&
+    val.every((is: string | Node) => typeof is === 'string')
   );
 }
 
