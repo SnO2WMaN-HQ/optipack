@@ -1,6 +1,0 @@
-{
-  "moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json"],
-  "rootDir": "src",
-  "coverageDirectory": "../coverage",
-  "testRegex": ".*\\.(test)\\.(tsx?|jsx?)$"
-}

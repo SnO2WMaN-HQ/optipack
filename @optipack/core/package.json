@@ -7,10 +7,14 @@
   "files": [
     "lib/"
   ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
   "dependencies": {
-    "alpha-sort": "^3.1.0",
-    "cac": "^6.6.1",
-    "cosmiconfig": "^7.0.0"
+    "alpha-sort": "^3.1.0"
   },
   "devDependencies": {
     "lodash": "^4.17.20"
