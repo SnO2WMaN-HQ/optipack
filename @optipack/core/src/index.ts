@@ -1,5 +1,5 @@
 import {ascending} from 'alpha-sort';
-import {Config, defaultConfig} from './configs';
+import {Config} from './configs';
 import {
   alphabeticalSorter,
   generateRootSorter,

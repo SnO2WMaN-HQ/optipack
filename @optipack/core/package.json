@@ -2,8 +2,8 @@
   "name": "@optipack/core",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "files": [
     "lib/"
   ],
