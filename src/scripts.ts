@@ -41,8 +41,8 @@ export function separateDetailed(
 }
 
 export function extractUniqueKey(array: string[]): string[] {
-  return [
-    ...new Set(
+  return Array.from(
+    new Set(
       array.map((key) => {
         const base = key.split(':')[0];
         if (base.startsWith('pre')) return base.substring(3);
@@ -50,7 +50,7 @@ export function extractUniqueKey(array: string[]): string[] {
         return base;
       }),
     ),
-  ];
+  );
 }
 
 export function separateByUniqueKeys(array: string[]): string[][] {
