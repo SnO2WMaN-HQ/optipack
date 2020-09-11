@@ -41,7 +41,7 @@ export async function getOption(): Promise<{filePath: string; write: boolean}> {
     .then((content) => format(content, config))
     .then((content) =>
       prettier.format(content, {
-        parser: 'json-stringify',
+        parser: 'json',
       }),
     )
     .then((content) =>
