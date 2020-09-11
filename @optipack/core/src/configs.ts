@@ -17,6 +17,8 @@ export const defaultOrder = [
   'typings',
   'files',
   'bin',
+  // not package info
+  'workspaces',
   // scripts
   'scripts',
   // dependencies
