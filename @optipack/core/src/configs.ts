@@ -6,6 +6,7 @@ export const defaultOrder = [
   'description',
   'license',
   'author',
+  'homepage',
   'repository',
   'bugs',
   'keywords',
