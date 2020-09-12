@@ -1,9 +1,9 @@
 import {Config, defaultConfig, format} from '@optipack/core';
 import {cosmiconfigSync} from 'cosmiconfig';
 import {Plugin} from 'prettier';
+import {parsers as babelParsers} from 'prettier/parser-babel';
 
-const {parsers} =
-  require('prettier/parser-babel') || require('prettier/parser-babylon');
+const {'json-stringify': jsonParser} = babelParsers;
 
 export function getConfig(pwd?: string): Config {
   const explorer = cosmiconfigSync('optipack');
@@ -13,12 +13,16 @@ export function getConfig(pwd?: string): Config {
 
 export const plugin: Plugin = {
   parsers: {
-    json: {
-      ...parsers.json,
+    'json-stringify': {
+      ...jsonParser,
       preprocess(text, options) {
-        if (/(^|\\|\/)package.json$/.test(options.filepath))
-          return format(text, getConfig(process.cwd()));
-        return text;
+        // eslint-disable-next-line no-param-reassign
+        text = jsonParser.preprocess
+          ? jsonParser.preprocess(text, options)
+          : text;
+        return /(^|\\|\/)package.json$/.test(options.filepath)
+          ? format(text, getConfig(process.cwd()))
+          : text;
       },
     },
   },
