@@ -4,11 +4,14 @@
   "version": "0.0.1",
   "packages": ["@optipack/*"],
   "command": {
-    "publish": {
+    "publish": {},
+    "version": {
       "allowBranch": "master",
       "registry": "https://npm.pkg.github.com",
       "conventionalCommits": true,
-      "message": "chore(release): %s"
+      "message": "chore(release): %s",
+      "noPush": true,
+      "noCommitHooks": true
     }
   }
 }
