@@ -31,11 +31,5 @@
   },
   "dependencies": {
     "alpha-sort": "^3.1.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.13",
-    "@types/lodash": "^4.14.161",
-    "@types/prettier": "^2.1.0",
-    "lodash": "^4.17.20"
   }
 }

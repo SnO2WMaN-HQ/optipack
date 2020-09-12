@@ -1530,12 +1530,17 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@optipack/cli@./@optipack/cli":
+"@optipack/cli@file:@optipack/cli":
   version "0.0.1"
   dependencies:
-    "@optipack/core" "^0.0.1"
+    "@optipack/core" "file:../../../../.cache/yarn/v6/npm-@optipack-cli-0.0.1-9ef1905e-51d3-4e88-991a-12df00590d53-1599929859627/node_modules/@optipack/core"
     cac "^6.6.1"
     cosmiconfig "^7.0.0"
+
+"@optipack/core@file:@optipack/core":
+  version "0.0.1"
+  dependencies:
+    alpha-sort "^3.1.0"
 
 "@shopify/eslint-plugin@^37.0.1":
   version "37.0.1"
@@ -6790,10 +6795,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier-plugin-optipack@./@optipack/prettier-plugin:
+"prettier-plugin-optipack@file:@optipack/prettier-plugin":
   version "0.0.1"
   dependencies:
-    "@optipack/core" "^0.0.1"
+    "@optipack/core" "file:../../../../.cache/yarn/v6/npm-prettier-plugin-optipack-0.0.1-0f8aa310-f954-40ac-b49e-559e758307cc-1599929859645/node_modules/core"
     cosmiconfig "^7.0.0"
 
 prettier-plugin-organize-imports@^1.1.1:
