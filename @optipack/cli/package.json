@@ -1,6 +1,20 @@
 {
   "name": "@optipack/cli",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "email": "me@sno2wman.dev",
+    "name": "SnO2WMaN"
+  },
+  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
+    "directory": "@optipack/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
+  },
   "files": [
     "lib"
   ],
@@ -16,10 +30,7 @@
     "cac": "^6.6.1",
     "cosmiconfig": "^7.0.0"
   },
-  "devDependencies": {
-    "ts-node": "^9.0.0"
-  },
   "peerDependencies": {
-    "prettier": "^2.1.1"
+    "prettier": ">=1.17"
   }
 }

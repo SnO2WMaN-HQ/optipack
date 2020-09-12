@@ -1,8 +1,26 @@
 {
   "name": "prettier-plugin-optipack",
   "version": "0.0.1",
-  "author": "SnO2WMaN <sno2wman.official@gmail.com>",
   "license": "MIT",
+  "author": {
+    "email": "me@sno2wman.dev",
+    "name": "SnO2WMaN"
+  },
+  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/prettier-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
+    "directory": "@optipack/prettier-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
+  },
+  "keywords": [
+    "optipack",
+    "package-json",
+    "prettier",
+    "prettier-plugin"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -19,14 +37,6 @@
     "cosmiconfig": "^7.0.0"
   },
   "peerDependencies": {
-    "prettier": "^2.1.1"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.13",
-    "@types/prettier": "^2.1.0",
-    "jest": "^26.4.2",
-    "tsconfig-paths": "^3.9.0",
-    "ts-jest": "^26.3.0",
-    "ts-node": "^9.0.0"
+    "prettier": ">=1.17"
   }
 }
