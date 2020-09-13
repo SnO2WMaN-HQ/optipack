@@ -26,7 +26,7 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "@optipack/core": "file:../core",
+    "@optipack/core": "^0.0.1",
     "cac": "^6.6.1",
     "cosmiconfig": "^7.0.0"
   },

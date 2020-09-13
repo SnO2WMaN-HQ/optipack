@@ -33,7 +33,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@optipack/core": "file:../core",
+    "@optipack/core": "^0.0.1",
     "cosmiconfig": "^7.0.0"
   },
   "peerDependencies": {
