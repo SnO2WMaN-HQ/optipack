@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@optipack/core": "^0.0.1",
-    "cac": "^6.6.1",
-    "cosmiconfig": "^7.0.0"
+    "cac": "6.6.1",
+    "cosmiconfig": "7.0.0"
   },
   "peerDependencies": {
     "prettier": ">=1.17"
