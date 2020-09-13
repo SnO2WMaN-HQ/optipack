@@ -5,6 +5,9 @@ node_modules/
 lib/
 tsconfig.tsbuildinfo
 
+# Test
+coverage/
+
 # Logs
 *.log
 

@@ -27,7 +27,8 @@
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
     "alpha-sort": "^3.1.0"

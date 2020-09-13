@@ -20,7 +20,8 @@
     "lint": "run-s -cn lint:*",
     "lint:eslint": "eslint . --ext .js,.ts",
     "lint:prettier": "prettier --check **/*.{json,yml,yaml,md}",
-    "test": "lerna run test --stream --parallel --include-dependencies"
+    "test": "lerna run test --stream --parallel --include-dependencies",
+    "test:ci": "lerna run test:ci --stream --parallel --include-dependencies"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.2",
