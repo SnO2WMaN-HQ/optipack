@@ -6783,7 +6783,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-"prettier-plugin-optipack@file:@optipack/prettier-plugin":
+"prettier-plugin-optipack@file:./@optipack/prettier-plugin":
   version "0.0.1"
   dependencies:
     "@optipack/core" "^0.0.1"
