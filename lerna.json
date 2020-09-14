@@ -7,7 +7,8 @@
     "publish": {},
     "version": {
       "allowBranch": "master",
-      "message": "chore: %s"
+      "message": "chore: %s",
+      "conventionalCommits": true
     }
   }
 }
