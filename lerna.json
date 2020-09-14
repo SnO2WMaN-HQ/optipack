@@ -9,7 +9,7 @@
       "allowBranch": "master",
       "registry": "https://npm.pkg.github.com",
       "conventionalCommits": true,
-      "message": "chore(release): %s",
+      "message": "chore: %s",
       "noPush": true,
       "noCommitHooks": true
     }
