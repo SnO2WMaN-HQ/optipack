@@ -1,6 +1,6 @@
 {
   "name": "@optipack/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": {
     "email": "me@sno2wman.dev",
@@ -26,7 +26,7 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "@optipack/core": "^0.0.1",
+    "@optipack/core": "^0.0.2",
     "cac": "6.6.1",
     "cosmiconfig": "7.0.0"
   },
