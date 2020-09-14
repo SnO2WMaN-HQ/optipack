@@ -1,6 +1,6 @@
 {
   "name": "@optipack/prettier-plugin-optipack",
-  "version": "0.0.2",
+  "version": "1.0.0-alpha.0",
   "license": "MIT",
   "author": {
     "email": "me@sno2wman.dev",
@@ -37,7 +37,7 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
-    "@optipack/core": "^0.0.2",
+    "@optipack/core": "^1.0.0-alpha.0",
     "cosmiconfig": "^7.0.0"
   },
   "peerDependencies": {

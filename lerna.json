@@ -1,8 +1,10 @@
 {
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.0.2",
-  "packages": ["@optipack/*"],
+  "version": "1.0.0-alpha.0",
+  "packages": [
+    "@optipack/*"
+  ],
   "command": {
     "publish": {},
     "version": {
