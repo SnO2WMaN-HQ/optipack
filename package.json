@@ -27,9 +27,9 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "0.7.2",
-    "@commitlint/cli": "9.1.2",
-    "@commitlint/config-conventional": "10.0.0",
-    "@commitlint/config-lerna-scopes": "9.1.2",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@commitlint/config-lerna-scopes": "11.0.0",
     "@shopify/eslint-plugin": "37.0.1",
     "@shopify/prettier-config": "1.1.1",
     "@types/jest": "26.0.13",
