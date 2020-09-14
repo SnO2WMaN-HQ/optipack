@@ -2,18 +2,12 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "0.0.2",
-  "packages": [
-    "@optipack/*"
-  ],
+  "packages": ["@optipack/*"],
   "command": {
     "publish": {},
     "version": {
       "allowBranch": "master",
-      "registry": "https://npm.pkg.github.com",
-      "conventionalCommits": true,
-      "message": "chore: %s",
-      "noPush": true,
-      "noCommitHooks": true
+      "message": "chore: %s"
     }
   }
 }
