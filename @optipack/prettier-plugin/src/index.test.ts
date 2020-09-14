@@ -1,10 +1,16 @@
 import {readFileSync} from 'fs';
 import {resolve} from 'path';
-import {format} from 'prettier';
+import {format, Options} from 'prettier';
 import {plugin} from '.';
 
+const prettierFormatOption: Options = {
+  parser: 'json-stringify',
+  filepath: 'package.json',
+  plugins: [plugin],
+};
+
 describe('sort', () => {
-  it('sort', () => {
+  it('1', () => {
     const expected: string = readFileSync(
       resolve(__dirname, 'fixtures', '1_expected.json'),
       'utf8',
@@ -13,11 +19,7 @@ describe('sort', () => {
       resolve(__dirname, 'fixtures', '1.json'),
       'utf8',
     );
-    const actual: string = format(code, {
-      parser: 'json-stringify',
-      filepath: 'package.json',
-      plugins: [plugin],
-    });
+    const actual: string = format(code, prettierFormatOption);
 
     expect(actual).toBe(expected);
   });

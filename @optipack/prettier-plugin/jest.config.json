@@ -1,7 +1,9 @@
 {
-  "testRegex": ".test.ts$",
-  "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
-  },
-  "coverageDirectory": "./coverage"
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "rootDir": ".",
+  "testMatch": ["<rootDir>/**/*.test.ts"],
+  "moduleFileExtensions": ["ts", "js"],
+  "reporters": ["default"],
+  "collectCoverage": true
 }
