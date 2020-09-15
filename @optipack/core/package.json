@@ -15,6 +15,11 @@
   "bugs": {
     "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
   },
+  "keywords": [
+    "format",
+    "optipack",
+    "package.json"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -24,11 +29,13 @@
     "lib/"
   ],
   "scripts": {
-    "build": "tsc -b",
-    "clean": "tsc -b --clean",
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "run-p -cn clean:*",
+    "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
+    "clean:tsc": "yarn build --clean",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:ci": "jest --ci --coverage"
+    "test:ci": "jest --ci --coverage",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "alpha-sort": "^3.1.0"

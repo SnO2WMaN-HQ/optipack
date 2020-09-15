@@ -15,18 +15,26 @@
   "bugs": {
     "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
   },
-  "files": [
-    "lib"
+  "keywords": [
+    "cli",
+    "format",
+    "optipack",
+    "package.json"
   ],
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib"
+  ],
   "bin": {
     "optipack": "lib/index.js"
   },
   "scripts": {
-    "build": "tsc -b",
-    "clean": "tsc -b --clean"
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "run-p -cn clean:*",
+    "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
+    "clean:tsc": "yarn build --clean"
   },
   "dependencies": {
     "@optipack/core": "^1.0.0-alpha.0",

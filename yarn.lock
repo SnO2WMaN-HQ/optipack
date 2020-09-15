@@ -1530,11 +1530,6 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@optipack/core@file:@optipack/core":
-  version "1.0.0-alpha.0"
-  dependencies:
-    alpha-sort "^3.1.0"
-
 "@shopify/eslint-plugin@38.0.0":
   version "38.0.0"
   resolved "https://registry.yarnpkg.com/@shopify/eslint-plugin/-/eslint-plugin-38.0.0.tgz#1ddbd354958373f2a13d4ec0770d3648377c2b49"

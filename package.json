@@ -1,27 +1,27 @@
 {
   "name": "@optipack/root",
-  "version": "0.0.1",
   "private": true,
   "description": "Optimizer for package.json",
+  "license": "MIT",
   "author": {
     "email": "me@sno2wman.dev",
     "name": "SnO2WMaN"
   },
-  "license": "MIT",
   "workspaces": [
     "@optipack/*"
   ],
   "scripts": {
     "build": "lerna run build --stream --parallel --include-dependencies",
     "clean": "run-s -cn clean:*",
-    "clean:lerna": "lerna clean --yes",
-    "clean:git": "lerna exec 'git clean -xdf node_modules lib coverage tsconfig.tsbuildinfo'",
+    "clean:packages": "lerna run clean --stream --parallel",
+    "clean:root": "lerna clean --yes",
     "fmt": "run-s -cn fmt:*",
     "fmt:eslint": "yarn lint:eslint --fix",
     "fmt:prettier": "yarn lint:prettier --write",
     "lint": "run-s -cn lint:*",
     "lint:eslint": "eslint . --ext .js,.ts",
     "lint:prettier": "prettier --check **/*.{json,yml,yaml,md}",
+    "postinstall": "lerna bootstrap",
     "test": "lerna run test --stream --parallel --include-dependencies",
     "test:ci": "lerna run test:ci --stream --parallel --include-dependencies"
   },
