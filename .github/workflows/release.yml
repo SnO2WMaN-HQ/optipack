@@ -18,15 +18,11 @@ jobs:
         with:
           node_version: 12
           registry-url: 'https://npm.pkg.github.com'
-      - run: |
-          git config --global user.name 'SnO2WMaN'
-          git config --global user.email 'SnO2WMaN@users.noreply.github.com'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn install --frozen-lockfile
-      - run: |
-          yarn lerna version ${{ github.event.inputs.version }} \
-            --yes --no-commit-hooks \
-            --create-release github
+      - run: yarn lerna version ${{ github.event.inputs.version }} --yes --no-commit-hooks --create-release github
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn lerna publish from-package --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
