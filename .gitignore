@@ -3,7 +3,7 @@ node_modules/
 
 # Outputs
 lib/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 # Test
 coverage/
