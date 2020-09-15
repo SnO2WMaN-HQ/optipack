@@ -34,7 +34,8 @@
     "build": "tsc -b tsconfig.build.json",
     "clean": "run-p -cn clean:*",
     "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
-    "clean:tsc": "yarn build --clean"
+    "clean:tsc": "yarn build --clean",
+    "prepare": "yarn clean && yarn build"
   },
   "dependencies": {
     "@optipack/core": "^1.0.0-alpha.0",
