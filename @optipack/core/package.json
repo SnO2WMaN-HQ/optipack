@@ -18,8 +18,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "lib/main.js",
-  "types": "lib/main.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/"
   ],

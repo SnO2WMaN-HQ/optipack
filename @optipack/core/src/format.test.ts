@@ -1,6 +1,12 @@
 import {shuffle} from 'lodash';
-import {arraynize, dearranize, isNodeArray, isStringArray, sort} from '.';
 import {defaultConfig} from './configs';
+import {
+  arraynize,
+  dearranize,
+  isNodeArray,
+  isStringArray,
+  sort,
+} from './format';
 import {Node} from './sorters';
 
 describe('index', () => {
