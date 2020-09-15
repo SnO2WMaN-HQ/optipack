@@ -5,16 +5,9 @@ coverage:
       core:
         flags:
           - core
-      prettier-plugin:
-        flags:
-          - prettier-plugin
 
 flags:
   core:
     paths:
       - '@optipack/core'
     carryforward: false
-  prettier-plugin:
-    paths:
-      - '@optipack/prettier-plugin'
-    carryforward: true
