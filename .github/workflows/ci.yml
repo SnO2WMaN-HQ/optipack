@@ -15,14 +15,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-      - run: yarn lerna bootstrap
       - run: yarn build
 
   test:
@@ -38,14 +31,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-      - run: yarn lerna bootstrap
-      - run: yarn build
       - run: yarn test:ci
       - uses: codecov/codecov-action@v1
