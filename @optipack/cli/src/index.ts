@@ -2,13 +2,9 @@
 import {Config, defaultConfig, format} from '@optipack/core';
 import {cac} from 'cac';
 import {cosmiconfig} from 'cosmiconfig';
-import fs from 'fs';
+import {readFile, writeFile} from 'fs/promises';
 import * as path from 'path';
-import prettier from 'prettier';
-import {promisify} from 'util';
-
-const writeFile = promisify(fs.writeFile);
-const readFile = promisify(fs.readFile);
+import * as prettier from 'prettier';
 
 export async function getConfig(pwd: string): Promise<Config> {
   const explorer = cosmiconfig('optipack');
