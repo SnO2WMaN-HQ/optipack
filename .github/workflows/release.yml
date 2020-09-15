@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node_version: 12
+          node-version: 12
           registry-url: 'https://npm.pkg.github.com'
       - run: yarn install --frozen-lockfile
       - run: yarn lerna version ${{ github.event.inputs.version }} --yes --no-commit-hooks --create-release github
