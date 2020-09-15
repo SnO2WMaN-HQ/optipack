@@ -21,7 +21,7 @@ Optimizer for _package.json_
 [readme-prettier-plugin]: https://github.com/SnO2WMaN-HQ/prettier-plugin-optipack#readme
 [npm-core]: https://www.npmjs.com/package/@optipack/core
 [npm-cli]: https://www.npmjs.com/package/@optipack/cli
-[npm-prettier-plugin]: https://www.npmjs.com/package/@optipack/prettier-plugin-optipack
+[npm-prettier-plugin]: https://www.npmjs.com/package/prettier-plugin-optipack
 [version-core]: https://img.shields.io/npm/v/@optipack/core
 [version-cli]: https://img.shields.io/npm/v/@optipack/cli
 [version-prettier-plugin]: https://img.shields.io/npm/v/prettier-plugin-optipack
@@ -33,4 +33,4 @@ Optimizer for _package.json_
 [license-badge-prettier-plugin]: https://img.shields.io/npm/l/prettier-plugin-optipack
 [license-core]: https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/core/LICENSE
 [license-cli]: https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/cli/LICENSE
-[license-prettier-plugin]: https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/prettier-plugin/LICENSE
+[license-prettier-plugin]: https://github.com/SnO2WMaN-HQ/optipack/tree/master/prettier-plugin/LICENSE
