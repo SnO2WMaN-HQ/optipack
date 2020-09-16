@@ -1,9 +1,9 @@
 import {shuffle} from 'lodash';
-import sort, {JSONObjectNode} from '.';
+import sort from '.';
 
 describe('alphabetical-sort', () => {
   it('sort', () => {
-    const expected: JSONObjectNode[] = [
+    const expected: [string, any][] = [
       ['a', expect.anything()],
       ['b', expect.anything()],
       ['c', expect.anything()],

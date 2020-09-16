@@ -1,7 +1,5 @@
 import {ascending} from 'alpha-sort';
 
-export type JSONObjectNode = [string, any];
-
-export default function sort(nodes: JSONObjectNode[]): JSONObjectNode[] {
+export default function sort<T>(nodes: [string, T][]): [string, T][] {
   return nodes.sort(([left], [right]) => ascending(left, right));
 }
