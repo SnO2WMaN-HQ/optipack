@@ -1,10 +1,9 @@
-import {JSONObjectNode} from '@optipack/alphabetical-sorter';
 import {shuffle} from 'lodash';
 import sort from '.';
 
 describe('configurable-alphabetical-sorter', () => {
   it('no config', () => {
-    const expected: JSONObjectNode[] = [
+    const expected: [string, any][] = [
       ['a', expect.anything()],
       ['b', expect.anything()],
       ['c', expect.anything()],
@@ -17,7 +16,7 @@ describe('configurable-alphabetical-sorter', () => {
   });
 
   it('specify order', () => {
-    const expected: JSONObjectNode[] = [
+    const expected: [string, any][] = [
       ['x', expect.anything()],
       ['y', expect.anything()],
       ['z', expect.anything()],
@@ -32,6 +31,20 @@ describe('configurable-alphabetical-sorter', () => {
     expect(
       sort(shuffle(expected), {
         order: ['x', 'y', 'z'],
+      }),
+    ).toStrictEqual(expected);
+  });
+
+  it('for script', () => {
+    const expected: [string, any][] = [
+      ['build', expect.anything()],
+      ['test', expect.anything()],
+      ['lint', expect.anything()],
+      ['fmt', expect.anything()],
+    ];
+    expect(
+      sort(shuffle(expected), {
+        order: ['build', 'test', 'lint', 'fmt'],
       }),
     ).toStrictEqual(expected);
   });
