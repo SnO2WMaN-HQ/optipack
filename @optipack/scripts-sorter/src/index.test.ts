@@ -1,45 +1,44 @@
-import {JSONObjectNode} from '@optipack/alphabetical-sorter';
 import {shuffle} from 'lodash';
 import sort, {combine, intereptKeyDependencies, separate} from '.';
 
 describe('scripts-sorter', () => {
   it('no config', () => {
-    const expected: JSONObjectNode[] = [
-      ['prebuild', expect.anything()],
-      ['build', expect.anything()],
-      ['postbuild', expect.anything()],
-      ['fmt', expect.anything()],
-      ['fmt:eslint', expect.anything()],
-      ['fmt:prettier', expect.anything()],
-      ['lint', expect.anything()],
-      ['lint:eslint', expect.anything()],
-      ['lint:prettier', expect.anything()],
-      ['preversion', expect.anything()],
-      ['pretest', expect.anything()],
-      ['test', expect.anything()],
-      ['test:ci', expect.anything()],
-      ['test:watch', expect.anything()],
+    const expected: [string, string][] = [
+      ['prebuild', 'prebuild'],
+      ['build', 'build'],
+      ['postbuild', 'postbuild'],
+      ['fmt', 'fmt'],
+      ['fmt:eslint', 'fmt:eslint'],
+      ['fmt:prettier', 'fmt:prettier'],
+      ['lint', 'lint'],
+      ['lint:eslint', 'lint:eslint'],
+      ['lint:prettier', 'lint:prettier'],
+      ['preversion', 'preversion'],
+      ['pretest', 'pretest'],
+      ['test', 'test'],
+      ['test:ci', 'test:ci'],
+      ['test:watch', 'test:watch'],
     ];
     const sorted = sort(shuffle(expected), {});
     expect(sorted).toStrictEqual(expected);
   });
 
   it('specify order', () => {
-    const expected: JSONObjectNode[] = [
-      ['prebuild', expect.anything()],
-      ['build', expect.anything()],
-      ['postbuild', expect.anything()],
-      ['pretest', expect.anything()],
-      ['test', expect.anything()],
-      ['test:ci', expect.anything()],
-      ['test:watch', expect.anything()],
-      ['lint', expect.anything()],
-      ['lint:eslint', expect.anything()],
-      ['lint:prettier', expect.anything()],
-      ['fmt', expect.anything()],
-      ['fmt:eslint', expect.anything()],
-      ['fmt:prettier', expect.anything()],
-      ['preversion', expect.anything()],
+    const expected: [string, string][] = [
+      ['prebuild', 'prebuild'],
+      ['build', 'build'],
+      ['postbuild', 'postbuild'],
+      ['pretest', 'pretest'],
+      ['test', 'test'],
+      ['test:ci', 'test:ci'],
+      ['test:watch', 'test:watch'],
+      ['lint', 'lint'],
+      ['lint:eslint', 'lint:eslint'],
+      ['lint:prettier', 'lint:prettier'],
+      ['fmt', 'fmt'],
+      ['fmt:eslint', 'fmt:eslint'],
+      ['fmt:prettier', 'fmt:prettier'],
+      ['preversion', 'preversion'],
     ];
     const sorted = sort(shuffle(expected), {
       order: ['build', 'test', 'lint', 'fmt'],
@@ -64,101 +63,101 @@ function sortSeparated(
 
 describe('separate()', () => {
   it('simply', () => {
-    const nodes: JSONObjectNode[] = [
-      ['build', expect.anything()],
-      ['lint', expect.anything()],
-      ['fmt', expect.anything()],
-      ['test', expect.anything()],
+    const nodes: [string, string][] = [
+      ['build', 'build'],
+      ['lint', 'lint'],
+      ['fmt', 'fmt'],
+      ['test', 'test'],
     ];
     expect(sortSeparated(separate(nodes))).toStrictEqual({
       build: {
-        nodes: [['build', expect.anything()].sort()],
+        nodes: [['build', 'build'].sort()],
       },
       lint: {
-        nodes: [['lint', expect.anything()]].sort(),
+        nodes: [['lint', 'lint']].sort(),
       },
       fmt: {
-        nodes: [['fmt', expect.anything()]].sort(),
+        nodes: [['fmt', 'fmt']].sort(),
       },
       test: {
-        nodes: [['test', expect.anything()]].sort(),
+        nodes: [['test', 'test']].sort(),
       },
     });
   });
 
   it('separate with coron', () => {
-    const nodes: JSONObjectNode[] = [
-      ['build', expect.anything()],
-      ['lint', expect.anything()],
-      ['lint:eslint', expect.anything()],
-      ['lint:prettier', expect.anything()],
-      ['fmt', expect.anything()],
-      ['fmt:eslint', expect.anything()],
-      ['fmt:prettier', expect.anything()],
-      ['test', expect.anything()],
-      ['test:ci', expect.anything()],
-      ['test:watch', expect.anything()],
+    const nodes: [string, string][] = [
+      ['build', 'build'],
+      ['lint', 'lint'],
+      ['lint:eslint', 'lint:eslint'],
+      ['lint:prettier', 'lint:prettier'],
+      ['fmt', 'fmt'],
+      ['fmt:eslint', 'fmt:eslint'],
+      ['fmt:prettier', 'fmt:prettier'],
+      ['test', 'test'],
+      ['test:ci', 'test:ci'],
+      ['test:watch', 'test:watch'],
     ];
     expect(sortSeparated(separate(nodes))).toStrictEqual({
       build: {
-        nodes: [['build', expect.anything()].sort()],
+        nodes: [['build', 'build'].sort()],
       },
       lint: {
         nodes: [
-          ['lint', expect.anything()],
-          ['lint:eslint', expect.anything()],
-          ['lint:prettier', expect.anything()],
+          ['lint', 'lint'],
+          ['lint:eslint', 'lint:eslint'],
+          ['lint:prettier', 'lint:prettier'],
         ].sort(),
       },
       fmt: {
         nodes: [
-          ['fmt', expect.anything()],
-          ['fmt:eslint', expect.anything()],
-          ['fmt:prettier', expect.anything()],
+          ['fmt', 'fmt'],
+          ['fmt:eslint', 'fmt:eslint'],
+          ['fmt:prettier', 'fmt:prettier'],
         ].sort(),
       },
       test: {
         nodes: [
-          ['test', expect.anything()],
-          ['test:ci', expect.anything()],
-          ['test:watch', expect.anything()],
+          ['test', 'test'],
+          ['test:ci', 'test:ci'],
+          ['test:watch', 'test:watch'],
         ].sort(),
       },
     });
   });
 
   it('separate with pre and post', () => {
-    const nodes: JSONObjectNode[] = [
-      ['prebuild', expect.anything()],
-      ['prebuild:a', expect.anything()],
-      ['prebuild:b', expect.anything()],
-      ['build', expect.anything()],
-      ['build:a', expect.anything()],
-      ['build:b', expect.anything()],
-      ['postbuild', expect.anything()],
-      ['postbuild:a', expect.anything()],
-      ['postbuild:b', expect.anything()],
+    const nodes: [string, string][] = [
+      ['prebuild', 'prebuild'],
+      ['prebuild:a', 'prebuild:a'],
+      ['prebuild:b', 'prebuild:b'],
+      ['build', 'build'],
+      ['build:a', 'build:a'],
+      ['build:b', 'build:b'],
+      ['postbuild', 'postbuild'],
+      ['postbuild:a', 'postbuild:a'],
+      ['postbuild:b', 'postbuild:b'],
     ];
     expect(sortSeparated(separate(nodes))).toStrictEqual({
       build: {
         nodes: [
-          ['build', expect.anything()],
-          ['build:a', expect.anything()],
-          ['build:b', expect.anything()],
+          ['build', 'build'],
+          ['build:a', 'build:a'],
+          ['build:b', 'build:b'],
         ].sort(),
       },
       prebuild: {
         nodes: [
-          ['prebuild', expect.anything()],
-          ['prebuild:a', expect.anything()],
-          ['prebuild:b', expect.anything()],
+          ['prebuild', 'prebuild'],
+          ['prebuild:a', 'prebuild:a'],
+          ['prebuild:b', 'prebuild:b'],
         ].sort(),
       },
       postbuild: {
         nodes: [
-          ['postbuild', expect.anything()],
-          ['postbuild:a', expect.anything()],
-          ['postbuild:b', expect.anything()],
+          ['postbuild', 'postbuild'],
+          ['postbuild:a', 'postbuild:a'],
+          ['postbuild:b', 'postbuild:b'],
         ].sort(),
       },
     });
@@ -199,68 +198,36 @@ describe('combine()', () => {
     expect(
       combine({
         build: {
-          nodes: [
-            ['build', expect.anything()],
-            ['build:a', expect.anything()],
-            ['build:b', expect.anything()],
-          ],
+          nodes: [['build', 'build']],
         },
         lint: {
-          nodes: [
-            ['lint', expect.anything()],
-            ['lint:eslint', expect.anything()],
-            ['lint:prettier', expect.anything()],
-          ],
+          nodes: [['lint', 'lint']],
         },
         fmt: {
-          nodes: [
-            ['fmt', expect.anything()],
-            ['fmt:eslint', expect.anything()],
-            ['fmt:prettier', expect.anything()],
-          ],
+          nodes: [['fmt', 'fmt']],
         },
         test: {
-          nodes: [
-            ['test', expect.anything()],
-            ['test:ci', expect.anything()],
-            ['test:watch', expect.anything()],
-          ],
+          nodes: [['test', 'test']],
         },
       }),
     ).toStrictEqual({
       build: {
-        base: [
-          ['build', expect.anything()],
-          ['build:a', expect.anything()],
-          ['build:b', expect.anything()],
-        ],
+        base: [['build', 'build']],
         pre: [],
         post: [],
       },
       lint: {
-        base: [
-          ['lint', expect.anything()],
-          ['lint:eslint', expect.anything()],
-          ['lint:prettier', expect.anything()],
-        ],
+        base: [['lint', 'lint']],
         pre: [],
         post: [],
       },
       fmt: {
-        base: [
-          ['fmt', expect.anything()],
-          ['fmt:eslint', expect.anything()],
-          ['fmt:prettier', expect.anything()],
-        ],
+        base: [['fmt', 'fmt']],
         pre: [],
         post: [],
       },
       test: {
-        base: [
-          ['test', expect.anything()],
-          ['test:ci', expect.anything()],
-          ['test:watch', expect.anything()],
-        ],
+        base: [['test', 'test']],
         pre: [],
         post: [],
       },
@@ -272,43 +239,27 @@ describe('combine()', () => {
       combine({
         build: {
           nodes: [
-            ['build', expect.anything()],
-            ['build:a', expect.anything()],
-            ['build:b', expect.anything()],
+            ['build', 'build'],
+            ['build:a', 'build:a'],
+            ['build:b', 'build:b'],
           ],
         },
         prebuild: {
-          nodes: [
-            ['prebuild', expect.anything()],
-            ['prebuild:a', expect.anything()],
-            ['prebuild:b', expect.anything()],
-          ],
+          nodes: [['prebuild', 'prebuild']],
         },
         postbuild: {
-          nodes: [
-            ['postbuild', expect.anything()],
-            ['postbuild:a', expect.anything()],
-            ['postbuild:b', expect.anything()],
-          ],
+          nodes: [['postbuild', 'postbuild']],
         },
       }),
     ).toStrictEqual({
       build: {
         base: [
-          ['build', expect.anything()],
-          ['build:a', expect.anything()],
-          ['build:b', expect.anything()],
+          ['build', 'build'],
+          ['build:a', 'build:a'],
+          ['build:b', 'build:b'],
         ],
-        pre: [
-          ['prebuild', expect.anything()],
-          ['prebuild:a', expect.anything()],
-          ['prebuild:b', expect.anything()],
-        ],
-        post: [
-          ['postbuild', expect.anything()],
-          ['postbuild:a', expect.anything()],
-          ['postbuild:b', expect.anything()],
-        ],
+        pre: [['prebuild', 'prebuild']],
+        post: [['postbuild', 'postbuild']],
       },
     });
   });
@@ -317,26 +268,26 @@ describe('combine()', () => {
     expect(
       combine({
         build: {
-          nodes: [['build', expect.anything()]],
+          nodes: [['build', 'build']],
         },
         prebuild: {
-          nodes: [['prebuild', expect.anything()]],
+          nodes: [['prebuild', 'prebuild']],
         },
         postbuild: {
-          nodes: [['postbuild', expect.anything()]],
+          nodes: [['postbuild', 'postbuild']],
         },
         preversion: {
-          nodes: [['preversion', expect.anything()]],
+          nodes: [['preversion', 'preversion']],
         },
       }),
     ).toStrictEqual({
       build: {
-        base: [['build', expect.anything()]],
-        pre: [['prebuild', expect.anything()]],
-        post: [['postbuild', expect.anything()]],
+        base: [['build', 'build']],
+        pre: [['prebuild', 'prebuild']],
+        post: [['postbuild', 'postbuild']],
       },
       preversion: {
-        base: [['preversion', expect.anything()]],
+        base: [['preversion', 'preversion']],
         pre: [],
         post: [],
       },

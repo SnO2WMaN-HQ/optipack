@@ -1,25 +1,28 @@
-import alphabeticalSort, {JSONObjectNode} from '@optipack/alphabetical-sorter';
+import alphabeticalSort from '@optipack/alphabetical-sorter';
 import configurableAlphabeticalSort from '@optipack/configurable-alphabetical-sorter';
 
 export interface Config {
   order: string[];
 }
 
-export default function sort(nodes: JSONObjectNode[], config: Partial<Config>) {
+export default function sort(
+  nodes: [string, string][],
+  config: Partial<Config>,
+): [string, string][] {
   return configurableAlphabeticalSort<ReturnType<typeof combine>[string]>(
     Object.entries(combine(separate(nodes))),
     config,
   ).flatMap(([_, {base, pre, post}]) => [
-    ...alphabeticalSort(pre),
-    ...alphabeticalSort(base),
-    ...alphabeticalSort(post),
+    ...alphabeticalSort<string>(pre),
+    ...alphabeticalSort<string>(base),
+    ...alphabeticalSort<string>(post),
   ]);
 }
 
 export function separate(
-  nodes: JSONObjectNode[],
+  nodes: Parameters<typeof sort>[0],
 ): {
-  [key in string]: {nodes: JSONObjectNode[]};
+  [key in string]: {nodes: Parameters<typeof sort>[0]};
 } {
   return nodes.reduce((prev: ReturnType<typeof separate>, [key, value]) => {
     const keyBase = key.split(':')[0];
@@ -36,9 +39,9 @@ export function combine(
   arg: ReturnType<typeof separate>,
 ): {
   [key in string]: {
-    base: JSONObjectNode[];
-    pre: JSONObjectNode[];
-    post: JSONObjectNode[];
+    base: Parameters<typeof sort>[0];
+    pre: Parameters<typeof sort>[0];
+    post: Parameters<typeof sort>[0];
   };
 } {
   return Object.fromEntries(

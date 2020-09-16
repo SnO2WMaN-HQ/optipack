@@ -12,9 +12,6 @@
       "path": "../core/tsconfig.build.json"
     },
     {
-      "path": "../alphabetical-sorter/tsconfig.build.json"
-    },
-    {
       "path": "../configurable-alphabetical-sorter/tsconfig.build.json"
     }
   ],
