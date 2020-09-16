@@ -1,0 +1,37 @@
+{
+  "name": "@optipack/scripts-sorter",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": "SnO2WMaN <sno2wman.official@gmail.com>",
+  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/scripts-sorter#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
+    "directory": "@optipack/scripts-sorter"
+  },
+  "bugs": {
+    "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "run-p -cn clean:*",
+    "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
+    "clean:tsc": "yarn build --clean",
+    "prepare": "yarn clean && yarn build",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@optipack/alphabetical-sorter": "^1.0.1",
+    "@optipack/configurable-alphabetical-sorter": "^1.0.1"
+  }
+}

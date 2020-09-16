@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "strict": true,
+    "rootDir": "./src",
+    "outDir": "./lib"
+  },
+  "references": [
+    {
+      "path": "../core/tsconfig.build.json"
+    },
+    {
+      "path": "../alphabetical-sorter/tsconfig.build.json"
+    },
+    {
+      "path": "../configurable-alphabetical-sorter/tsconfig.build.json"
+    }
+  ],
+  "exclude": ["src/**/*.test.ts", "lib/**/*"]
+}
