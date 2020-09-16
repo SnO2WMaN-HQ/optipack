@@ -7,5 +7,16 @@
     "rootDir": "./src"
   },
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.ts", "lib/**/*"]
+  "exclude": ["src/**/*.test.ts", "lib/**/*"],
+  "references": [
+    {
+      "path": "../alphabetical-sorter/tsconfig.build.json"
+    },
+    {
+      "path": "../configurable-alphabetical-sorter/tsconfig.build.json"
+    },
+    {
+      "path": "../scripts-sorter/tsconfig.build.json"
+    }
+  ]
 }
