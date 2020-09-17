@@ -28,10 +28,7 @@
     "clean": "run-p -cn clean:*",
     "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
     "clean:tsc": "yarn build --clean",
-    "prepare": "yarn clean && yarn build",
-    "test": "jest",
-    "test:ci": "jest --ci --coverage",
-    "test:watch": "jest --watch"
+    "prepare": "yarn clean && yarn build"
   },
   "dependencies": {
     "cosmiconfig": "^7.0.0"
