@@ -1,0 +1,39 @@
+{
+  "name": "@optipack/cosmiconfig",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": {
+    "email": "me@sno2wman.dev",
+    "name": "SnO2WMaN"
+  },
+  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/cosmiconfig#readme",
+  "repository": {
+    "directory": "@optipack/cosmiconfig",
+    "type": "git",
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "run-p -cn clean:*",
+    "clean:git": "git clean -xdf lib coverage *.tsbuildinfo",
+    "clean:tsc": "yarn build --clean",
+    "prepare": "yarn clean && yarn build",
+    "test": "jest",
+    "test:ci": "jest --ci --coverage",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "cosmiconfig": "^7.0.0"
+  }
+}
