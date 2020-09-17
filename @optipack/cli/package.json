@@ -1,6 +1,6 @@
 {
   "name": "@optipack/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": {
     "email": "me@sno2wman.dev",
@@ -38,8 +38,8 @@
     "prepare": "yarn clean && yarn build"
   },
   "dependencies": {
-    "@optipack/core": "^1.0.1",
-    "@optipack/cosmiconfig": "^1.0.1",
+    "@optipack/core": "^1.0.2",
+    "@optipack/cosmiconfig": "^1.0.2",
     "cac": "6.6.1",
     "cosmiconfig": "7.0.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@optipack/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": {
     "email": "me@sno2wman.dev",
@@ -39,10 +39,10 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@optipack/alphabetical-sorter": "1.0.1",
-    "@optipack/config": "1.0.1",
-    "@optipack/configurable-alphabetical-sorter": "1.0.1",
-    "@optipack/scripts-sorter": "1.0.1",
+    "@optipack/alphabetical-sorter": "^1.0.2",
+    "@optipack/config": "^1.0.2",
+    "@optipack/configurable-alphabetical-sorter": "^1.0.2",
+    "@optipack/scripts-sorter": "^1.0.2",
     "alpha-sort": "^3.1.0",
     "lodash": "^4.17.20"
   }
