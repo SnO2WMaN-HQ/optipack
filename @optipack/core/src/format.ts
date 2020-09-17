@@ -58,8 +58,8 @@ export function sortRoot(
 }
 
 export function sortParts([key, value]: Node, config: Config): Node {
-  if (key === 'scripts' && validScripts(value)) {
-    return [key, scriptsSorter(value, {order: config.scriptsOrder})];
+  if (config.scripts.sort && key === 'scripts' && validScripts(value)) {
+    return [key, scriptsSorter(value, {order: config.scripts.order})];
   }
 
   if (

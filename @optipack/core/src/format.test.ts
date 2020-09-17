@@ -255,7 +255,6 @@ describe('sortRoot()', () => {
 
   it('scripts order', () => {
     const expected: [string, any][] = [
-      ['name', 'optipack'],
       [
         'scripts',
         [
@@ -284,7 +283,42 @@ describe('sortRoot()', () => {
     expect(
       sortRoot(shuffleComplex(expected), {
         ...defaultConfig,
-        scriptsOrder: ['build', 'clean', 'test', 'lint', 'fmt'],
+        scripts: {sort: true, order: ['build', 'clean', 'test', 'lint', 'fmt']},
+      }),
+    ).toStrictEqual(expected);
+  });
+
+  it('scripts default(alphabetical)', () => {
+    const expected: [string, any][] = [
+      [
+        'scripts',
+        [
+          [
+            'build',
+            'lerna run build --stream --parallel --include-dependencies',
+          ],
+          ['clean', 'run-s -cn clean:*'],
+          ['clean:packages', 'lerna run clean --stream --parallel'],
+          ['clean:root', 'lerna clean --yes'],
+          ['fmt', 'run-s -cn fmt:*'],
+          ['fmt:eslint', 'yarn lint:eslint --fix'],
+          ['fmt:prettier', 'yarn lint:prettier --write'],
+          ['lint', 'run-s -cn lint:*'],
+          ['lint:eslint', 'eslint . --ext .js,.ts'],
+          ['lint:prettier', 'prettier --check **/*.{json,yml,yaml,md}'],
+          ['postinstall', 'lerna bootstrap'],
+          ['test', 'lerna run test --stream --parallel --include-dependencies'],
+          [
+            'test:ci',
+            'lerna run test:ci --stream --parallel --include-dependencies',
+          ],
+        ],
+      ],
+    ];
+    expect(
+      sortRoot(shuffleComplex(expected), {
+        ...defaultConfig,
+        scripts: {sort: true, order: []},
       }),
     ).toStrictEqual(expected);
   });
