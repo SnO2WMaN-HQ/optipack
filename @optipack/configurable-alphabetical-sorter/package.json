@@ -3,11 +3,11 @@
   "version": "1.0.1",
   "license": "MIT",
   "author": "SnO2WMaN <sno2wman.official@gmail.com>",
-  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/scripts-sorter#readme",
+  "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/configurable-alphabetical-sorter#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
-    "directory": "@optipack/scripts-sorter"
+    "directory": "@optipack/configurable-alphabetical-sorter"
   },
   "bugs": {
     "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
