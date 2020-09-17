@@ -16,7 +16,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
+          registry-url: 'https://registry.npmjs.org'
           node-version: 12
+          scope: '@optipack'
+          always-auth: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: |
           git config --global user.name "SnO2WMaN"
           git config --global user.email "SnO2WMaN@users.noreply.github.com"
