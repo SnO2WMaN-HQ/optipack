@@ -1,7 +1,5 @@
 {
-  "testRegex": ".test.ts$",
-  "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
-  },
-  "coverageDirectory": "./coverage"
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "collectCoverage": true
 }

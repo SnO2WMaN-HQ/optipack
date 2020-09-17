@@ -8,9 +8,9 @@
   },
   "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/core",
   "repository": {
+    "directory": "@optipack/core",
     "type": "git",
-    "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
-    "directory": "@optipack/core"
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git"
   },
   "bugs": {
     "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
@@ -39,6 +39,10 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "alpha-sort": "^3.1.0"
+    "@optipack/alphabetical-sorter": "^1.0.1",
+    "@optipack/configurable-alphabetical-sorter": "^1.0.1",
+    "@optipack/scripts-sorter": "^1.0.1",
+    "alpha-sort": "^3.1.0",
+    "lodash": "^4.17.20"
   }
 }

@@ -31,6 +31,7 @@ export const defaultOrder = [
 
 export const defaultConfig = {
   order: defaultOrder,
+  scriptsOrder: [],
 };
 
 export type Config = typeof defaultConfig;
