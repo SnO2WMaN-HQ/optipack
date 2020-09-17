@@ -9,6 +9,9 @@
   "references": [
     {
       "path": "../core/tsconfig.build.json"
+    },
+    {
+      "path": "../cosmiconfig/tsconfig.build.json"
     }
   ]
 }

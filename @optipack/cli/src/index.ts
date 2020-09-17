@@ -1,16 +1,10 @@
 #!/usr/bin/env node
-import {Config, defaultConfig, format} from '@optipack/core';
+import {format} from '@optipack/core';
+import {getConfig} from '@optipack/cosmiconfig';
 import {cac} from 'cac';
-import {cosmiconfig} from 'cosmiconfig';
 import {readFile, writeFile} from 'fs/promises';
 import * as path from 'path';
 import * as prettier from 'prettier';
-
-export async function getConfig(pwd: string): Promise<Config> {
-  const explorer = cosmiconfig('optipack');
-  const result = await explorer.search(pwd);
-  return result?.config ? {...defaultConfig, ...result.config} : defaultConfig;
-}
 
 export async function getOption(): Promise<{filePath: string; write: boolean}> {
   const cli = cac();

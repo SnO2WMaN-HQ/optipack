@@ -8,9 +8,9 @@
   },
   "homepage": "https://github.com/SnO2WMaN-HQ/optipack/tree/master/@optipack/cli",
   "repository": {
+    "directory": "@optipack/cli",
     "type": "git",
-    "url": "https://github.com/SnO2WMaN-HQ/optipack.git",
-    "directory": "@optipack/cli"
+    "url": "https://github.com/SnO2WMaN-HQ/optipack.git"
   },
   "bugs": {
     "url": "https://github.com/SnO2WMaN-HQ/optipack/issues"
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@optipack/core": "^1.0.1",
+    "@optipack/cosmiconfig": "^1.0.1",
     "cac": "6.6.1",
     "cosmiconfig": "7.0.0"
   },
