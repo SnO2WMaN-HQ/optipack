@@ -5,9 +5,36 @@ coverage:
       core:
         flags:
           - core
-
+      alphabetical-sorter:
+        flags:
+          - alphabetical-sorter
+      configurable-alphabetical-sorter:
+        flags:
+          - configurable-alphabetical-sorter
+      scripts-sorter:
+        flags:
+          - scripts-sorter
+      config:
+        flags:
+          - config
 flags:
   core:
     paths:
       - '@optipack/core'
+    carryforward: false
+  alphabetical-sorter:
+    paths:
+      - '@optipack/alphabetical-sorter'
+    carryforward: false
+  configurable-alphabetical-sorter:
+    paths:
+      - '@optipack/configurable-alphabetical-sorter'
+    carryforward: false
+  scripts-sorter:
+    paths:
+      - '@optipack/scripts-sorter'
+    carryforward: false
+  config:
+    paths:
+      - '@optipack/config'
     carryforward: false
