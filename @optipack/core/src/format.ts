@@ -1,9 +1,9 @@
 import alphabeticalSorter from '@optipack/alphabetical-sorter';
+import {Config} from '@optipack/config';
 import configurableAlphabeticalSorter from '@optipack/configurable-alphabetical-sorter';
 import scriptsSorter from '@optipack/scripts-sorter';
 import {ascending} from 'alpha-sort';
 import {isArray, isBoolean, isNull, isNumber, isString} from 'lodash';
-import {Config} from './configs';
 
 export type JSonScalar = string | number | boolean | null;
 export type Node = [string, JSonScalar | (JSonScalar | Node)[]];
@@ -89,8 +89,4 @@ export function isStringArray(
 ): value is string[] {
   if (!Array.isArray(value)) return false;
   return true;
-}
-
-export function format(json: string, config: Config): string {
-  return stringify(sortRoot(arraynize(JSON.parse(json)), config));
 }

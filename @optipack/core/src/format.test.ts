@@ -1,5 +1,5 @@
+import {defaultConfig} from '@optipack/config';
 import {shuffle} from 'lodash';
-import {defaultConfig} from './configs';
 import {arraynize, sortRoot, stringify, validScripts} from './format';
 
 function shuffleComplex(array: [string, any][]): [string, any][] {

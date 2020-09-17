@@ -10,6 +10,9 @@
   "exclude": ["src/**/*.test.ts", "lib/**/*"],
   "references": [
     {
+      "path": "../config/tsconfig.build.json"
+    },
+    {
       "path": "../alphabetical-sorter/tsconfig.build.json"
     },
     {
