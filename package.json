@@ -32,7 +32,7 @@
     "@commitlint/config-lerna-scopes": "11.0.0",
     "@shopify/eslint-plugin": "39.0.1",
     "@shopify/prettier-config": "1.1.2",
-    "@types/jest": "26.0.21",
+    "@types/jest": "26.0.22",
     "@types/lodash": "4.14.168",
     "@types/prettier": "2.1.0",
     "conventional-changelog-cli": "2.1.0",
