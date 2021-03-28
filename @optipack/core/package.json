@@ -43,7 +43,7 @@
     "@optipack/config": "^1.0.2",
     "@optipack/configurable-alphabetical-sorter": "^1.0.2",
     "@optipack/scripts-sorter": "^1.0.2",
-    "alpha-sort": "^3.1.0",
+    "alpha-sort": "^4.0.0",
     "lodash": "^4.17.20"
   }
 }
