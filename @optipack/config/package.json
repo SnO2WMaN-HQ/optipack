@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.20",
-    "type-fest": "^0.18.0"
+    "type-fest": "^1.0.0"
   }
 }
