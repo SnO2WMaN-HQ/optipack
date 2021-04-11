@@ -2068,10 +2068,10 @@ ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alpha-sort@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/alpha-sort/-/alpha-sort-3.1.0.tgz#debba2da76434a7b42963e51b007431e404b78e6"
-  integrity sha512-mRMFzTqMpyGsMUN/rytVErIFQ0nNtMQdyxop09082hTVYbfK2rts7E1XpTExaEyxKT5JZimdA7zGgVQMVgOfXA==
+alpha-sort@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/alpha-sort/-/alpha-sort-5.0.0.tgz#83dceebaf1c838eb45e75c03b45d0d1f53724f8c"
+  integrity sha512-ObQ58fJyEEYr7n91itdT/N4LYmg6H/HehNHIvsTL9byMLYf3acJaLpvc+/KnvNDQVX5LmACETJAtWLXA9GUTmw==
 
 ansi-colors@^4.1.1:
   version "4.1.1"
