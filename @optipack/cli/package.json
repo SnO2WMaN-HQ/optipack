@@ -40,7 +40,7 @@
   "dependencies": {
     "@optipack/core": "^1.0.2",
     "@optipack/cosmiconfig": "^1.0.2",
-    "cac": "6.6.1",
+    "cac": "6.7.3",
     "cosmiconfig": "7.0.0"
   },
   "peerDependencies": {
